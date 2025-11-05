@@ -1,5 +1,6 @@
 from logging.config import fileConfig
 from app.models.user import User
+from app.models.data import Product
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 

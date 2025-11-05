@@ -1,9 +1,9 @@
 import uvicorn
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
-from starlette.middleware.sessions import SessionMiddleware
 from app.api.v1.endpoinds.password import router as router_password
 from app.api.v1.endpoinds.user import router as user
+from app.api.v1.endpoinds.product import router as product
 from app.core.config import settings
 from starlette.middleware.sessions import SessionMiddleware
 app = FastAPI()
@@ -30,6 +30,7 @@ app.add_middleware(SessionMiddleware, secret_key=settings.SESSION_SECRET_KEY)
 
 app.include_router(user, prefix='/api')
 app.include_router(router_password, prefix='/api')
+app.include_router(product, prefix='/api')
 
 
 if __name__ == '__main__':

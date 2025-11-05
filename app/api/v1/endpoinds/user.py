@@ -18,6 +18,7 @@ router = APIRouter()
 
 @router.post("/user", response_model=UserOut, status_code=status.HTTP_201_CREATED)
 async def user_registration(add: AddUser, db: Session = Depends(get_db)):
+    print(add.password)
     user = registration(db, add)
     return user
 
